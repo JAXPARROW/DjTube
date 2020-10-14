@@ -4,20 +4,34 @@ import youtube_dl
 import json
 
 
-ydl_opts = {
+audio_opts = {
     'format': 'bestaudio/best',
     'audio-quality':'0',
     'embed-thumbnail':'True',
     'writethumbnail':'True',
+    'restrict-filenames':'True',
     'postprocessors': [
             {'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
             'preferredquality': '192'},
             {'key': 'EmbedThumbnail',},]}
 
+
+video_opts = {
+    # 'format':'worstvideo[ext=mp4]+worstaudio', #during testing to reduce data consumption
+    'format':'bestvideo+bestaudio', #to be used in production environment
+    'embed-thumbnail':'True',
+    'write-description':'True',
+    'write-info-json':'True',
+    'write-annotations':'True',
+    'writethumbnail':'True',
+    'restrict-filenames':'True'
+    }
+    
+
 n = 1 #number of search results
 
-query = "panda kanyewest"
+query = "rules dua lipa"
 
 search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
 
@@ -35,20 +49,40 @@ for n in range(n):
     views = (result_dict['search_result'][n]['views']) #gets the number of views
 
 
-    print(title)
-    print(link)
+    # print(title)
+    # print(link)
 
 # print(ytresults)
 
+#ytresults -- python str
+#resultdict -- python dictionary
+link_list = []
+link_list.append(link)
+
+# def show_info():
+    
+
+
+
+
+
+
 # youtube-dl --extract-audio --audio-format mp3 link 
+def get_video():    
+    try:
+        with youtube_dl.YoutubeDL(video_opts) as ydl:
+            ydl.download(link_list)
 
-sound_list = []
+    except:
+        pass
 
-sound_list.append(link)
+def get_audio():
+    try:
+        with youtube_dl.YoutubeDL(audio_opts) as ydl:
+            ydl.download(link_list)
 
-try:
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download(sound_list)
+    except:
+        pass
 
-except:
-    pass
+# show_info()
+get_video()
