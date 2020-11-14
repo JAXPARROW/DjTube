@@ -1,0 +1,20 @@
+{% extends 'youloader/base.html' %}
+
+{% block content %}
+<div class="card" style="width: 300px;">
+   
+<!-- 1:1 aspect ratio -->
+<div class="embed-responsive embed-responsive-1by1">
+  <iframe class="embed-responsive-item" src={{link}}></iframe>
+</div>
+    <div class="card-body text-center">
+        <h5 class="card-title">{{title}}</h5>
+         <span><i class="fas fa-stopwatch mr-1"></i>{{ duration }}</span>
+    	<span><i class="fas fa-eye mr-1"></i>{{ views }}</span>
+    	<a href="#" class="btn btn-primary" name="download">Download</a>
+    </div>
+</div>
+
+
+{% endblock %}
+

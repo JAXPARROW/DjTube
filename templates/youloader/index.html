@@ -1,33 +1,6 @@
+{% extends 'youloader/base.html' %}
 
-<!DOCTYPE html>
-<html>
+{% block content %}
 
-<head>
-  <title>YouLoader</title>
-</head>
+{% endblock %}
 
-<body>
-	<p>this will be downloading the youtube video or audio</p>
-
-
-
-<form method="post">{% csrf_token %}
-	<input type="text" name="video_name">
-	<input type="submit" value="submit">
-	
-	<iframe width="420" height="315"
-		src={{link}}>
-	</iframe>
-
-	<p>Title: {{title }}</p>
-	
-	<p>Duration: {{duration }}</p>
-	<p>Views: {{views}}</p>
-	<p>video name : {{video}}</p>
-
-
-
-
-
-</body>
-</html>

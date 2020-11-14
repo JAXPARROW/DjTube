@@ -63,51 +63,46 @@ def index(request):
         url1 = "https://img.youtube.com"
         url2 = "/vi/{}/1.jpg".format(video_id)
 
-#this work for high resolution thumbimages but breaks when the video has no higher resolution
-# url1 = "http://i.ytimg.com"
-# url2 = "/vi/{}/maxresdefault.jpg".format(video_id)
+
     
         thumb_image = urllib.parse.urljoin(url1, url2)
 
-        # print(video)
+        
 
         context = {
-            # "result" : result_dict,
+            # "result" : ytresults,
             "link":url,
             "title": title,
             "duration": duration,
             "views": views,
-            "video":url,
-            #"thumbnail": thumb_image #not needed now         
+            "video":link,
+                
         }
-        template_name = "youloader/index.html"
+        template_name = "youloader/results.html"
         return render(request, template_name, context)
 
+    else:
+        template_name = "youloader/index.html"
+        return render(request, template_name)
 
 
 
 
+#def download_audio(request):
+   # try:
+    #    with youtube_dl.YoutubeDL(audio_opts) as ydl:
+   #         ydl.download(link_list)
+
+  #  except:
+ #       pass
 
 
 
+#def downloading_video(request):
+   #     try:
+  #      with youtube_dl.YoutubeDL(video_opts) as ydl:
+ #           ydl.download(link_list)
 
+#   except:
+#        pass
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def download(request):
-    pass
-
-def downloading(request):
-    pass

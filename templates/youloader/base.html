@@ -1,0 +1,39 @@
+{% load static %}
+<html>
+    <head>
+        <title>Django Youtube</title>
+            <!-- Required meta tags -->
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="
+        sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+            
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <div class="d-flex flex-grow-1">
+                    <a href="/" class="navbar-brand">DjTube</a>
+                    <form class="mr-2 my-auto w-100 d-inline-block order-1" method="post">{% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" class="form-control border border-right-0" placeholder="Search Video..." name="video_name">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-light border border-left-0" type="submit" value="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+                
+                <body>
+                    {% block content %}
+                    {% endblock %}
+                </body>
+
+          
+
+</html>
