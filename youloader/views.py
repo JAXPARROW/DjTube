@@ -37,7 +37,7 @@ def index(request):
 
     if request.method == 'POST':
         query = request.POST['video_name']
-        n = 1
+        n = 5
         search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
 
         ytresults = search.result()
@@ -70,7 +70,7 @@ def index(request):
         
 
         context = {
-            # "result" : ytresults,
+            "result" : result_dict,
             "link":url,
             "title": title,
             "duration": duration,

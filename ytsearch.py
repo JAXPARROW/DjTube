@@ -29,60 +29,33 @@ video_opts = {
     }
     
 
-n = 1 #number of search results
+n = 5 #number of search results
 
-query = "rules dua lipa"
+query = "jeje diamond"
 
 search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
 
 ytresults = search.result()
 
+# print(ytresults)
 
 result_dict = json.loads(ytresults)
 
+# print (result_dict)
 
+# result_dict = json.loads(ytresults)
+
+data = ''
 for n in range(n):
+    title = (result_dict['search_result'][n]['title'])
+    duration = (result_dict['search_result'][n]['duration']) 
 
-    title = (result_dict['search_result'][n]['title']) #gets the title of the video
-    link =  (result_dict['search_result'][n]['link']) #gets the link of the video
-    duration = (result_dict['search_result'][n]['duration'])  #gets the duration of the video
-    views = (result_dict['search_result'][n]['views']) #gets the number of views
+    output = json.dumps(ytresults, ensure_ascii=True, indent=2)
 
+    dump = data+output
 
-    # print(title)
-    # print(link)
-
-# print(ytresults)
-
-#ytresults -- python str
-#resultdict -- python dictionary
-link_list = []
-link_list.append(link)
-
-# def show_info():
-    
+    print (output)
 
 
 
 
-
-
-# youtube-dl --extract-audio --audio-format mp3 link 
-def get_video():    
-    try:
-        with youtube_dl.YoutubeDL(video_opts) as ydl:
-            ydl.download(link_list)
-
-    except:
-        pass
-
-def get_audio():
-    try:
-        with youtube_dl.YoutubeDL(audio_opts) as ydl:
-            ydl.download(link_list)
-
-    except:
-        pass
-
-# show_info()
-get_video()

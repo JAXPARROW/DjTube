@@ -29,11 +29,15 @@
                 </div>
             </nav>
                 
-                <body>
+                <body style="padding-top: 50px">
                     {% block content %}
                     {% endblock %}
                 </body>
 
-          
+<script type="text/javascript">
+        if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>       
 
 </html>
