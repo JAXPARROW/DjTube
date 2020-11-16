@@ -37,7 +37,7 @@ def index(request):
 
     if request.method == 'POST':
         query = request.POST['video_name']
-        n = 3
+        n = 12
         search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
 
         ytresults = search.result()
@@ -71,7 +71,7 @@ def index(request):
 
         context = {
             "result" : result_dict,
-            "link":url,
+            "link":link,
             "title": title,
             "duration": duration,
             "views": views,
@@ -84,7 +84,6 @@ def index(request):
     else:
         template_name = "youloader/index.html"
         return render(request, template_name)
-
 
 
 
