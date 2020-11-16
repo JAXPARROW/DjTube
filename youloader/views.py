@@ -37,7 +37,7 @@ def index(request):
 
     if request.method == 'POST':
         query = request.POST['video_name']
-        n = 5
+        n = 3
         search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
 
         ytresults = search.result()

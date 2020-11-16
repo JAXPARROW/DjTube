@@ -11,7 +11,7 @@ SECRET_KEY = 'sg4j-=5ugmd)1&6=zrt#&k%v5yjs+ov^g9m$pgts5$!$j2y6-6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.100','htpc.local']
+ALLOWED_HOSTS = ['192.168.0.100','htpc.local', 'localhost','127.0.0.1']
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -65,6 +65,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Web.wsgi.application'
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Database
