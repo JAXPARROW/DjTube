@@ -1,45 +1,40 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>DjTube</title>
-            <!-- Required meta tags -->
-        <!-- <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="
-        sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-            
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-                <div class="d-flex flex-grow-1">
-                    <a href="/" class="navbar-brand">DjTube</a>
-                    <form class="mr-2 my-auto w-100 d-inline-block order-1" method="post">{% csrf_token %}
-                        <div class="input-group">
-                            <input type="text" class="form-control border border-right-0" placeholder="Search Video..." name="video_name">
-                            <span class="input-group-append">
-                                <button class="btn btn-outline-light border border-left-0" type="submit" value="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-                
-                <body style="padding-top: 50px">
-                    {% block content %}
-                    {% endblock %}
-                </body>
-
-<script type="text/javascript">
+  <center>
+    <header>
+        <ul>
+         <!-- <li><a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a></li> -->
+         <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+           <!-- <li><a href="#grid"><img class="grid" src="https://cdn3.iconfinder.com/data/icons/navigation-and-settings/24/Material_icons-01-11-512.png" title="Google apps"></a></li> -->
+          <!-- <li><a href="#images">Images</a></li>
+          <li><a href="#gmail">Gmail</a></li> -->
+          <title>DjTube</title>
+          </ul>  
+    </header>
+    <!-- <div class="logo">
+      <img alt="Google" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+    </div> -->
+    <div class="bar">
+        <form class="mr-2 my-auto w-100 d-inline-block order-1" method="post">{% csrf_token %}
+      <input class="searchbar" type="text" title="Search" placeholder="Search Video..." name="video_name">
+      <a> <i style="margin-top: 5px;" class="material-icons voice">youtube_searched_for</i></a>
+       
+    </div>
+    <div class="buttons">
+      <button class="button" type="submit">Search</button>
+      <button class="button" type="button">Clear</button>
+     </div>
+    </form>
+     <script type="text/javascript">
         if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>       
+        window.history.replaceState( null, null, window.location.href );
+        }
+    </script>  
+    {% block content %}
+    {% endblock %}
+  </body>
 
+  </center>
 </html>
