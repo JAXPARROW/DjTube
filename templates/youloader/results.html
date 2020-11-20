@@ -1,41 +1,34 @@
 {% extends 'youloader/base.html' %}
 
 {% block content %}
+<div class="my-4">
+<div style="padding-top: 20px">
+    <div class="row">
+        {%  for result in result.search_result %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="card shadow-sm border-0 my-2">
+                    <img src="{{ result.thumbnails.1 }}" alt="{{ result.channelId }}">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ result.title }}</h5>
+                        <div class="d-flex flex-wrap justify-content-between card-subtitle my-2 text-muted small">
+                            
 
+                            <a href="{{ result.link }}" class="text-secondary font-weight-bold">
+                                <i class="fa fa-tablet mr-1"></i>{{ result.channel }}
+                            </a>
 
-<div class="container">
-	{%  for result in result.search_result %}
-  <div class="card">
-    <img src="{{ result.thumbnails.2 }}" alt="{{ result.channelId }}">
-    <p class="card__name">{{ result.title }}</p>
-    <div class="grid-container">
+                            <span><i class="fa fa-stopwatch mr-1"></i>{{ result.duration }}</span>
 
-      <div class="fa fa-eye mr-1">
-        {{ result.views }}
-      </div>
+                            <span><i class="fa fa-eye mr-1"></i>{{ result.views }}</span>
 
-      <div class="fa fa-stopwatch mr-1">
-        {{ result.duration }}
-      </div>
-
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        {% endfor %}
     </div>
-    <ul class="social-icons">
-      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-    </ul>
-    <button class="btn draw-border">Audio</button>
-    <button class="btn draw-border">Video</button>
-
-  </div>
-
-  {% endfor %}
-
 </div>
-
-
+</div>
 {% endblock %}
-
-
-       
-

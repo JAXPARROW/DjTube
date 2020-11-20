@@ -42,40 +42,11 @@ def index(request):
 
         ytresults = search.result()
 
-        result_dict = json.loads(ytresults)
-
-        for n in range(n):
-
-            video_id = (result_dict['search_result'][n]['id'])
-            title = (result_dict['search_result'][n]['title']) 
-            link =  (result_dict['search_result'][n]['link']) 
-            duration = (result_dict['search_result'][n]['duration']) 
-            views = (result_dict['search_result'][n]['views'])         
-
-# print(ytresults)
-
-        link_list = []
-        link_list.append(link)
-
-        url = link
-        url = link.replace("watch?v=", "embed/") #convert watch link to embed url for UI
-
-        url1 = "https://img.youtube.com"
-        url2 = "/vi/{}/1.jpg".format(video_id)
-
-
-    
-        thumb_image = urllib.parse.urljoin(url1, url2)
-
-        
+        result_dict = json.loads(ytresults)        
 
         context = {
             "result" : result_dict,
-            "link":link,
-            "title": title,
-            "duration": duration,
-            "views": views,
-            "video":link,
+        
                 
         }
         template_name = "youloader/results.html"
@@ -86,14 +57,12 @@ def index(request):
         return render(request, template_name)
 
 
+def download_audio(request):
+    if request.method == 'POST':
+        url = request.POST.get('url')
 
-#def download_audio(request):
-   # try:
-    #    with youtube_dl.YoutubeDL(audio_opts) as ydl:
-   #         ydl.download(link_list)
+        print(url)
 
-  #  except:
- #       pass
 
 
 
