@@ -53,8 +53,21 @@ def index(request):
         return render(request, template_name, context)
 
     else:
+        query = "no copyright sound"
+        n = 12
+
+        search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
+
+        index_results = search.result()
+
+        result_dict = json.loads(index_results)
+
+        context = {
+            "result" : result_dict
+        }
+
         template_name = "youloader/index.html"
-        return render(request, template_name)
+        return render(request, template_name, context)
 
 
 def download_audio(request):
