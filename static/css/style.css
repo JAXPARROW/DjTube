@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
 ul {
   list-style-type: none;
@@ -89,3 +90,8 @@ li a:hover {
 }
 
 
+
+.row{
+	margin-right: 15px;
+	margin-left: 15px;
+}
