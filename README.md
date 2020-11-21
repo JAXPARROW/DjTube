@@ -41,7 +41,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Credits 💎
-Thanks to [alexmercerind](https://github.com/alexmercerind) for making awesome library [youtube-search-python](https://github.com/alexmercerind/youtube-search-python) which searches Video and Playlist from Youtube.
+💥Thanks to [alexmercerind](https://github.com/alexmercerind) for making awesome library [youtube-search-python](https://github.com/alexmercerind/youtube-search-python) which searches Video and Playlist from Youtube.
+
+💥Thanks to [Lewicpro](https://github.com/lewicpro) for making the UI more appealing than before.
 
 ## License 
 [MIT](https://choosealicense.com/licenses/mit/)
