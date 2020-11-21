@@ -42,58 +42,40 @@ def index(request):
 
         ytresults = search.result()
 
-        result_dict = json.loads(ytresults)
-
-        for n in range(n):
-
-            video_id = (result_dict['search_result'][n]['id'])
-            title = (result_dict['search_result'][n]['title']) 
-            link =  (result_dict['search_result'][n]['link']) 
-            duration = (result_dict['search_result'][n]['duration']) 
-            views = (result_dict['search_result'][n]['views'])         
-
-# print(ytresults)
-
-        link_list = []
-        link_list.append(link)
-
-        url = link
-        url = link.replace("watch?v=", "embed/") #convert watch link to embed url for UI
-
-        url1 = "https://img.youtube.com"
-        url2 = "/vi/{}/1.jpg".format(video_id)
-
-
-    
-        thumb_image = urllib.parse.urljoin(url1, url2)
-
-        
+        result_dict = json.loads(ytresults)        
 
         context = {
             "result" : result_dict,
-            "link":link,
-            "title": title,
-            "duration": duration,
-            "views": views,
-            "video":link,
+        
                 
         }
         template_name = "youloader/results.html"
         return render(request, template_name, context)
 
     else:
+        query = "no copyright sound"
+        n = 12
+
+        search = SearchVideos(str(query), offset = 1, mode = "json", max_results = n)
+
+        index_results = search.result()
+
+        result_dict = json.loads(index_results)
+
+        context = {
+            "result" : result_dict
+        }
+
         template_name = "youloader/index.html"
-        return render(request, template_name)
+        return render(request, template_name, context)
 
 
+def download_audio(request):
+    if request.method == 'POST':
+        url = request.POST.get('url')
 
-#def download_audio(request):
-   # try:
-    #    with youtube_dl.YoutubeDL(audio_opts) as ydl:
-   #         ydl.download(link_list)
+        print(url)
 
-  #  except:
- #       pass
 
 
 
