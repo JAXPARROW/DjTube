@@ -1,41 +1,53 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <center>
+  
     <header>
         <ul>
-         <!-- <li><a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a></li> -->
+
          <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-           <!-- <li><a href="#grid"><img class="grid" src="https://cdn3.iconfinder.com/data/icons/navigation-and-settings/24/Material_icons-01-11-512.png" title="Google apps"></a></li> -->
-          <!-- <li><a href="#images">Images</a></li>
-          <li><a href="#gmail">Gmail</a></li> -->
+
           <title>DjTube</title>
           </ul>  
     </header>
-    <!-- <div class="logo">
-      <img alt="Google" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
-    </div> -->
+    <body>
+        <center>
+   
     <div class="bar">
         <form class="mr-2 my-auto w-100 d-inline-block order-1" method="post">{% csrf_token %}
       <input class="searchbar" type="text" title="Search" placeholder="Search Video..." name="video_name">
-      <a> <i style="margin-top: 5px;" class="material-icons voice">youtube_searched_for</i></a>
+      <a > <i style="margin-top: 5px;" class="material-icons voice">search</i></a>
        
     </div>
     <div class="buttons">
       <button class="button" type="submit">Search</button>
-      <button class="button" type="button">Clear</button>
+      <button id="clicked" class="button" type="button">Clear</button>
      </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
      <script type="text/javascript">
-
         if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
         }
     </script>  
+
+
+    <script>
+        $(document).ready(function(){
+       
+
+            $('#clicked').click(function(){
+                $(".searchbar").val("");
+        
+      })
+        })
+
+    </script>
+    </center>
     {% block content %}
     {% endblock %}
   </body>
 
-  </center>
 </html>
