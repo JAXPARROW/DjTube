@@ -32,7 +32,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 ## Screeshot
-[![image.png](https://i.postimg.cc/6qpg2XgV/image.png)](https://postimg.cc/tZ82wLX7)
+[![image.png](https://i.postimg.cc/Bb3nYngx/image.png)](https://postimg.cc/5YPJj1D0)
 
 
 ## Contributing 📝
