@@ -62,6 +62,8 @@ def index(request):
 
         result_dict = json.loads(index_results)
 
+        # link = result_dict.search_result.link
+
         context = {
             "result" : result_dict
         }
@@ -69,21 +71,30 @@ def index(request):
         template_name = "youloader/index.html"
         return render(request, template_name, context)
 
+        # print(link)
+
+
 
 def download_audio(request):
     if request.method == 'POST':
-        url = request.POST.get('url')
+        link = request.POST['result.link']
+        print(link)
+        # try:
+        #    with youtube_dl.YoutubeDL(audio_opts) as ydl:
+        #        ydl.download(link)
 
-        print(url)
+        # except:
+        #     pass
+
+
+
+# def download_audio(request):
+#     if request.method == 'POST':
+#         url = request.POST.get('url')
+
+#         print(url)
 
 
 
 
-#def downloading_video(request):
-   #     try:
-  #      with youtube_dl.YoutubeDL(video_opts) as ydl:
- #           ydl.download(link_list)
-
-#   except:
-#        pass
 

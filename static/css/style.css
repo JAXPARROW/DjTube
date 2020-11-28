@@ -20,6 +20,13 @@ li a {
 li a:hover {
   text-decoration: underline;
 }
+
+.my-4{
+   padding-left:2%;
+   padding-right:2%;
+
+}
+
 .grid{
   height:23px;
   position:relative;
