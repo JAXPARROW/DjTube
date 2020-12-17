@@ -1,3 +1,4 @@
+<p>hello video_details</p>
 {% extends 'youloader/base.html' %}
 
 {% block content %}
@@ -7,27 +8,27 @@
         {%  for result in result.search_result %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="card shadow-sm border-0 my-2">
-
-                    <a href="{% url 'video_details' result.id%}"  target="_blank">
                     <img src="{{ result.thumbnails.1 }}" alt="{{ result.channelId }}">
-                    </a>
-
+                    
                     <div class="card-body">
-
-                        <a href="{% url 'video_details' result.id%}"  target="_blank">
                         <h5 class="card-title">{{ result.title }}</h5>
-                        </a>
-
                         <div class="d-flex flex-wrap justify-content-between card-subtitle my-2 text-muted small">
                             
 
                             <a href="{{ result.link }}" class="text-secondary font-weight-bold">
-                                <i class="fa fa-tablet mr-1"></i>{{ result.channel }}
+                                <i class="fa fa-tablet mr-1"></i>{{ result.id }}
                             </a>
 
                             <span><i class="fa fa-stopwatch mr-1"></i>{{ result.duration }}</span>
 
                             <span><i class="fa fa-eye mr-1"></i>{{ result.views }}</span>
+
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Download</button>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Audio</a>
+                                <a class="dropdown-item" href="#">Video</a>
+                            </div>
 
                             <br>
 

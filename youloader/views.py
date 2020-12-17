@@ -42,7 +42,8 @@ def index(request):
 
         ytresults = search.result()
 
-        result_dict = json.loads(ytresults)        
+        result_dict = json.loads(ytresults)
+
 
         context = {
             "result" : result_dict,
@@ -62,7 +63,6 @@ def index(request):
 
         result_dict = json.loads(index_results)
 
-        # link = result_dict.search_result.link
 
         context = {
             "result" : result_dict
@@ -71,7 +71,25 @@ def index(request):
         template_name = "youloader/index.html"
         return render(request, template_name, context)
 
-        # print(link)
+
+
+
+def video_details(request, id):
+    search = SearchVideos(str(id), offset = 1, mode = "json", max_results = 1)
+
+    ytresults = search.result()
+
+    result_dict = json.loads(ytresults)
+
+
+    context = {
+        "result" : result_dict,
+    
+            
+    }
+    template_name = "youloader/video_details.html"
+    return render(request, template_name, context)
+
 
 
 
