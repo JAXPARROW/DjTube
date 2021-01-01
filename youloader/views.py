@@ -43,9 +43,9 @@ audio_opts = {
 
 
 video_opts = {
-    # 'format':'worstvideo[ext=mp4]+worstaudio', #during testing to reduce data consumption
-    # 'format':'bestvideo+bestaudio', #to be used in production environment
-    'format':'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+    # 'format':'worstvideo[ext=mp4]+worstaudio', #during testing to reduce data consumption,
+    # 'format':'bestvideo+bestaudio', #to be used in production environment,
+    'format':'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     'outtmpl': '/downloads/videos/%(title)s.%(ext)s',
     'embed-thumbnail':'True',
     'write-description':'True',
