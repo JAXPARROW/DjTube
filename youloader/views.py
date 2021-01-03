@@ -97,6 +97,13 @@ def video_details(request, id):
     return render(request, template_name, context)
 
 
+def from_youtube(request):
+
+    string = request.GET.get('v','')
+    return HttpResponse('It works,here is your string '+ string)
+    
+
+
 def download_audio(request, id):
     search = SearchVideos(str(id), offset = 1, mode = "json", max_results = 1)
     ytresults = search.result()
