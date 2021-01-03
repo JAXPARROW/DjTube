@@ -10,9 +10,3 @@ urlpatterns = [
     path('get_video/<str:id>/',  views.download_video, name='download_video'),
 
 ]
-
-# 127.0.0.1:8080/watch?v=XXXXXXXXX
-
-# bXHfrdi_fsU
-# 127.0.0.1:8080/
-# path('(watch)\?v\=<str:id>',
