@@ -21,6 +21,10 @@ li a:hover {
   text-decoration: underline;
 }
 
+.content{
+  background-color: blue;
+}
+
 .my-4{
    padding-left:2%;
    padding-right:2%;
@@ -96,9 +100,29 @@ li a:hover {
   padding: 9px 19px;
 }
 
+body{
+  
+}
+
+.zoom {
+
+  transition: transform .2s;  /*Animation */
+
+}
+
+.zoom:hover {
+  transform: scale(2);
+  position:initial;
+  z-index:111;
+  background:#fff;
+}
 
 
 .row{
+  display: flex;
 	margin-right: 15px;
 	margin-left: 15px;
+  justify-content: center;
+  
 }
+
