@@ -98,9 +98,13 @@ def video_details(request, id):
 
 
 def from_youtube(request):
+    video_id = request.GET.get('v','')
+    view_prefix = 'https://www.youtube.com/watch?v='
+    embedd_prefix = 'https://www.youtube.com/embed/'
+    youtube_view = f'{view_prefix}{video_id}'
+    youtube_embedd = f'{embedd_prefix}{video_id}'
 
-    string = request.GET.get('v','')
-    return HttpResponse('It works,here is your string '+ string)
+    return HttpResponse('It works,here are your links '+ youtube_view + ' with embedd of '+ youtube_embedd)
     
 
 
