@@ -97,14 +97,29 @@ def video_details(request, id):
     return render(request, template_name, context)
 
 
+
+def get_video_details(id):
+    search = SearchVideos(str(id), offset = 1, mode = "json", max_results = 1)
+    ytresults = search.result()
+    result_dict = json.loads(ytresults) 
+    return result_dict
+
+
+
 def from_youtube(request):
     video_id = request.GET.get('v','')
     view_prefix = 'https://www.youtube.com/watch?v='
     embedd_prefix = 'https://www.youtube.com/embed/'
     youtube_view = f'{view_prefix}{video_id}'
     youtube_embedd = f'{embedd_prefix}{video_id}'
-
-    return HttpResponse('It works,here are your links '+ youtube_view + ' with embedd of '+ youtube_embedd)
+    video_details = get_video_details(video_id)
+    context = {
+    "view" : youtube_view,
+    "embedd" : youtube_embedd,
+    "result": video_details,
+    }
+    template_name = "youloader/from_youtube.html"
+    return render(request, template_name, context)
     
 
 
@@ -113,8 +128,6 @@ def download_audio(request, id):
     ytresults = search.result()
     result_dict = json.loads(ytresults)
     link = (result_dict['search_result'][0]['link'])
-    # print(link)
-    # return HttpResponse("audio")
     try:
       with youtube_dl.YoutubeDL(audio_opts) as ydl_audio:
         ydl_audio.download([link])
@@ -131,8 +144,6 @@ def download_video(request, id):
     ytresults = search.result()
     result_dict = json.loads(ytresults)
     link = (result_dict['search_result'][0]['link'])
-    # print(link)
-    # return HttpResponse("video")
     try:
       with youtube_dl.YoutubeDL(video_opts) as ydl_audio:
         ydl_audio.download([link])
